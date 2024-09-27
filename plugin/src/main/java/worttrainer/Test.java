@@ -1,5 +1,8 @@
 package worttrainer;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+
 /**
  * Main
  * @author: Pavel Bakshi
@@ -7,7 +10,7 @@ package worttrainer;
  */
 
 public class Test {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         new View();
     }
 }
