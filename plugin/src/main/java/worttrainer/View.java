@@ -13,6 +13,12 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
+import org.json.JSONObject;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 
 public class View extends JPanel {
@@ -24,9 +30,12 @@ public class View extends JPanel {
     private int r = 0;
     private int f = 0;
     private int ins = 0;
+    private WortEintrag aktuell;
+    private WortListe liste;
 
     public View(WortListe liste, WortEintrag eintrag) throws IOException {
         JFrame frame = new JFrame();
+        this.liste = liste;
 
         //Layouts
         JPanel panel = new JPanel(new BorderLayout());
@@ -44,6 +53,8 @@ public class View extends JPanel {
         JLabel label4 = new JLabel("Erate das Tier auf dem Bild!");
         JTextField input = new JTextField(16);
         JButton button = new JButton("Check");
+        JButton speichern = new JButton("Speichern");
+        JButton laden = new JButton("Laden");
 
 
 
@@ -85,6 +96,7 @@ public class View extends JPanel {
                     richtig.setText("R=" + r);
                     falsch.setText("F=" + f);
                     insgesamt.setText("Insgesamt:" + ins);
+                    aktuell = new WortEintrag(ausgabe, u);
                     // Bild von der URL laden und anzeigen
                     try {
                         URL url = new URL(u);
@@ -106,6 +118,41 @@ public class View extends JPanel {
                 }
         }});
 
+        speichern.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SpeicherArt art = new JSON(liste, aktuell, r, f, ins);
+                WortSpeichern save = new WortSpeichern(art,liste, aktuell, r, f, ins );
+                save.speichern(art);
+            }
+        });
+
+        laden.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                WortLaden laden = new WortLaden();
+                JSONObject jsonObject = new JSONObject(laden.laden());
+
+
+                String url = jsonObject.getString("URL");
+                int r = Integer.parseInt(jsonObject.getString("Richtig"));
+                int f = Integer.parseInt(jsonObject.getString("Falsch"));
+                int ins = Integer.parseInt(jsonObject.getString("Insgesamt"));
+
+                BufferedImage image = null;
+                try {
+                    image = ImageIO.read(new URL(url));
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+                label3.setIcon(new ImageIcon(image));
+                richtig.setText("R=" + r);
+                falsch.setText("F=" + f);
+                insgesamt.setText("Insgesamt:" + ins);
+
+            }
+        });
+
         sp = eintrag.getName();
         BufferedImage image = ImageIO.read(new URL(eintrag.getUrl()));
         label3.setIcon(new ImageIcon(image));
@@ -119,6 +166,8 @@ public class View extends JPanel {
         action.add(label4);
         action.add(input);
         action.add(button);
+        action.add(speichern);
+        action.add(laden);
         panel.add(action, BorderLayout.LINE_START);
         panel.add(label3, BorderLayout.LINE_END);
         stats.setBorder(BorderFactory.createEmptyBorder(0,0,0,100));

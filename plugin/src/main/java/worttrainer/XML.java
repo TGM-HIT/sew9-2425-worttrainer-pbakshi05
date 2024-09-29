@@ -1,5 +1,6 @@
 package worttrainer;
 
+
 /**
  * KLasse XML
  * @author: Pavel Bakshi
@@ -8,12 +9,13 @@ package worttrainer;
 
 public class XML implements SpeicherArt {
     @Override
-    public void speichern(WortEintrag speicher) {
+    public void speichern() {
+
 
     }
 
     @Override
-    public void laden(WortEintrag laden) {
-
+    public String laden() {
+        return "";
     }
 }
