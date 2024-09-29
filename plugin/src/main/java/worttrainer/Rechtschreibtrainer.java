@@ -67,8 +67,11 @@ public class Rechtschreibtrainer implements Pruefen {
             if (nameInput.equals(name)) {
                 this.richtig++;
 
+
+            } else {
+                falsch++;
+
             }
             this.insgesamt++;
-
     }
 }

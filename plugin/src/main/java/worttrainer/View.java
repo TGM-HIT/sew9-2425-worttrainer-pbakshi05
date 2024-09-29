@@ -21,7 +21,9 @@ public class View extends JPanel {
     private String sp;
     private String eingabe;
     private String ausgabe;
-    private int i = 0;
+    private int r = 0;
+    private int f = 0;
+    private int ins = 0;
 
     public View(WortListe liste, WortEintrag eintrag) throws IOException {
         JFrame frame = new JFrame();
@@ -29,12 +31,14 @@ public class View extends JPanel {
         //Layouts
         JPanel panel = new JPanel(new BorderLayout());
         JPanel box = new JPanel(new FlowLayout());
-        JPanel grid = new JPanel(new GridLayout(1,2));
+        JPanel grid = new JPanel(new GridLayout(1,5,20,40));
         JPanel action = new JPanel(new GridLayout(8,1,20,40));
 
         //Labels
         JLabel stats = new JLabel("Statistik:");
-        JLabel richtig = new JLabel("R=" + i);
+        JLabel richtig = new JLabel("R=" + r);
+        JLabel falsch = new JLabel("F=" + f);
+        JLabel insgesamt = new JLabel("Insgesamt=" + ins);
         JLabel label = new JLabel("Worttrainer");
         JLabel label3 = new JLabel();
         JLabel label4 = new JLabel("Erate das Tier auf dem Bild!");
@@ -50,37 +54,55 @@ public class View extends JPanel {
         stats.setForeground(Color.WHITE);
         richtig.setFont(new Font("Verdana", Font.PLAIN, 30));
         richtig.setForeground(Color.WHITE);
+        falsch.setFont(new Font("Verdana", Font.PLAIN, 30));
+        falsch.setForeground(Color.WHITE);
+        insgesamt.setFont(new Font("Verdana", Font.PLAIN, 30));
+        insgesamt.setForeground(Color.WHITE);
         label4.setFont(new Font("Verdana", Font.PLAIN, 18));
-        action.setBorder(BorderFactory.createEmptyBorder(120,70,0,0));
+        action.setBorder(BorderFactory.createEmptyBorder(120,70,0,70));
+        grid.setBorder(BorderFactory.createEmptyBorder(0,10,0,0));
+
+        panel.setBackground(new java.awt.Color(32, 41, 41));
+        action.setBackground(new java.awt.Color(185, 204, 227));
+
 
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 Rechtschreibtrainer trainer = new Rechtschreibtrainer(liste);
-                // Zufälligen WortEintrag auswählen
-                ausgabe = sp;
-                eingabe = input.getText();
-                // Trainer starten
-                trainer.trainieren(eingabe, ausgabe);
-                i += trainer.getRichtig();
+                    // Zufälligen WortEintrag auswählen
+                    ausgabe = sp;
+                    eingabe = input.getText();
+                    // Trainer starten
+                    trainer.trainieren(eingabe, ausgabe);
+                    r += trainer.getRichtig();
+                    f += trainer.getFalsch();
+                    ins += trainer.getInsgesamt();
+                if(eingabe.equals(ausgabe) == true) {
+                    int random = (int) (Math.random() * liste.getWort().size());
+                    WortEintrag ein = liste.getWort().get(random);
+                    u = ein.getUrl();
+                    sp = ein.getName();
+                    richtig.setText("R=" + r);
+                    falsch.setText("F=" + f);
+                    insgesamt.setText("Insgesamt:" + ins);
+                    // Bild von der URL laden und anzeigen
+                    try {
+                        URL url = new URL(u);
+                        BufferedImage image = ImageIO.read(url);
+                        if (image != null) {
+                            label3.setIcon(new ImageIcon(image));
+                        } else {
+                            System.out.println("Bild konnte nicht geladen werden.");
+                        }
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
 
-                int random = (int) (Math.random() * liste.getWort().size());
-                WortEintrag ein = liste.getWort().get(random);
-                u = ein.getUrl();
-                sp = ein.getName();
-                richtig.setText("R=" + i);
-
-                // Bild von der URL laden und anzeigen
-                try {
-                    URL url = new URL(u);
-                    BufferedImage image = ImageIO.read(url);
-                    if (image != null) {
-                        label3.setIcon(new ImageIcon(image));
-                    } else {
-                        System.out.println("Bild konnte nicht geladen werden.");
                     }
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-
+                }
+                else {
+                    richtig.setText("R=" + r);
+                    falsch.setText("F=" + f);
+                    insgesamt.setText("Insgesamt:" + ins);
                 }
         }});
 
@@ -99,8 +121,13 @@ public class View extends JPanel {
         action.add(button);
         panel.add(action, BorderLayout.LINE_START);
         panel.add(label3, BorderLayout.LINE_END);
+        stats.setBorder(BorderFactory.createEmptyBorder(0,0,0,100));
+        richtig.setBorder(BorderFactory.createEmptyBorder(0,0,0,40));
+        falsch.setBorder(BorderFactory.createEmptyBorder(0,0,0,40));
         grid.add(stats);
         grid.add(richtig);
+        grid.add(falsch);
+        grid.add(insgesamt);
         grid.setLayout(new BoxLayout(grid, BoxLayout.LINE_AXIS));
         grid.setBackground(new java.awt.Color(32, 41, 41));
         panel.add(grid, BorderLayout.PAGE_END);
