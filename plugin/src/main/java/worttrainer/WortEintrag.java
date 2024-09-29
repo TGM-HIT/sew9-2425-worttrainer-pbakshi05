@@ -1,3 +1,5 @@
+package worttrainer;
+
 /**
  * Klasse WortEintrag
  * @author: Pavel Bakshi

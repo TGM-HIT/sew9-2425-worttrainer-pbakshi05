@@ -1,3 +1,5 @@
+package worttrainer;
+
 /**
  * Interface Pruefen
  * @author Pavel Bakshi

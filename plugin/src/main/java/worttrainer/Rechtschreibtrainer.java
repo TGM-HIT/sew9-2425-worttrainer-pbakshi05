@@ -1,3 +1,5 @@
+package worttrainer;
+
 /**
  * Klasse Rechtschreibtrainer
  * @author pavel
@@ -12,9 +14,8 @@ public class Rechtschreibtrainer implements Pruefen {
     /**
      * Konstruktor
      * @param liste Wortliste
-     * @param speichern WortSpeichern
      */
-    public Rechtschreibtrainer(WortListe liste, WortSpeichern speichern) {
+    public Rechtschreibtrainer(WortListe liste) {
         this.liste = liste;
         this.speichern = speichern;
     }
@@ -61,19 +62,13 @@ public class Rechtschreibtrainer implements Pruefen {
         return false;
     }
 
-    public void trainieren(String nameInput) {
-        do {
-            int random = (int)(Math.random() * liste.getWort().size() -1);
-            String name = liste.getWort().get(random).getName();
-            String url = liste.getWort().get(random).getUrl();
+    public void trainieren(String nameInput, String name) {
 
             if (nameInput.equals(name)) {
                 this.richtig++;
-                liste.getWort().remove(liste.getWort().get(random));
 
             }
             this.insgesamt++;
 
-        }while(liste.getWort().size() >= 1);
     }
 }

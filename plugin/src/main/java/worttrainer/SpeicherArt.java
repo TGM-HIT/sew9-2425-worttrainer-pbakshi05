@@ -1,3 +1,5 @@
+package worttrainer;
+
 /**
  * Interface SpeicherArt
  * @author Pavel Bakshi

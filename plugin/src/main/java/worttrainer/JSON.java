@@ -1,3 +1,5 @@
+package worttrainer;
+
 /**
  * Klasse JSON
  * @author: Pavel Bakshi

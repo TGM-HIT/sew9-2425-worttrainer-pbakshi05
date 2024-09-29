@@ -1,3 +1,6 @@
+package worttrainer;
+
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
@@ -7,7 +10,7 @@ import java.util.LinkedList;
  */
 
 public class WortListe implements Pruefen{
-    private LinkedList<WortEintrag> wort = new LinkedList<WortEintrag>();
+    private ArrayList<WortEintrag> wort = new ArrayList<WortEintrag>();
 
     /**
      * Konstruktor
@@ -31,7 +34,7 @@ public class WortListe implements Pruefen{
         wort.remove(w);
     }
 
-    public LinkedList<WortEintrag> getWort() {
+    public ArrayList<WortEintrag> getWort() {
         return wort;
     }
 

@@ -1,3 +1,5 @@
+package worttrainer;
+
 /**
  * Klasse WortSpeichern
  * @author: Pavel Bakshi

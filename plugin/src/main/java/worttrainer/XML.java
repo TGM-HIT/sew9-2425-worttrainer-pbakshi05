@@ -1,3 +1,5 @@
+package worttrainer;
+
 /**
  * KLasse XML
  * @author: Pavel Bakshi
