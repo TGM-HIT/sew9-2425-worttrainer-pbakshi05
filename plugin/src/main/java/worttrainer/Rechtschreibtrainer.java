@@ -63,6 +63,10 @@ public class Rechtschreibtrainer implements Pruefen {
      */
     @Override
     public boolean check() {
+
+        if(setListe(liste) == true ) {
+            return true;
+        }
         return false;
     }
 

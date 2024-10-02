@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Main-Class: worttrainer.Test
+Class-Path: groovy-sql-3.0.21.jar groovy-astbuilder-3.0.21.jar groovy-xm
+ l-3.0.21.jar groovy-dateutil-3.0.21.jar kotlin-stdlib-1.9.22.jar groovy
+ -nio-3.0.21.jar gradle-api-8.8.jar groovy-3.0.21.jar gradle-api-8.8.jar
+  junit-platform-engine-1.9.3.jar groovy-xml-3.0.21.jar json-20210307.ja
+ r groovy-dateutil-3.0.21.jar gradle-installation-beacon-8.8.jar groovy-
+ nio-3.0.21.jar gradle-test-kit-8.8.jar gradle-installation-beacon-8.8.j
+ ar junit-jupiter-5.9.3.jar groovy-3.0.21.jar groovy-dateutil-3.0.21.jar
+  junit-jupiter-api-5.9.3.jar kotlin-reflect-1.9.22.jar groovy-datetime-
+ 3.0.21.jar javaparser-core-3.17.0.jar groovy-console-3.0.21.jar groovy-
+ sql-3.0.21.jar groovy-groovydoc-3.0.21.jar kotlin-stdlib-1.9.22.jar kot
+ lin-reflect-1.9.22.jar gson-2.8.9.jar junit-jupiter-params-5.9.3.jar gr
+ oovy-json-3.0.21.jar groovy-test-3.0.21.jar groovy-templates-3.0.21.jar
+  groovy-ant-3.0.21.jar junit-platform-commons-1.9.3.jar groovy-groovydo
+ c-3.0.21.jar groovy-sql-3.0.21.jar groovy-test-3.0.21.jar groovy-astbui
+ lder-3.0.21.jar groovy-templates-3.0.21.jar gradle-api-8.8.jar kotlin-r
+ eflect-1.9.22.jar groovy-ant-3.0.21.jar groovy-xml-3.0.21.jar javaparse
+ r-core-3.17.0.jar groovy-console-3.0.21.jar groovy-templates-3.0.21.jar
+  junit-jupiter-engine-5.9.3.jar groovy-datetime-3.0.21.jar groovy-astbu
+ ilder-3.0.21.jar junit-platform-launcher-1.9.3.jar groovy-json-3.0.21.j
+ ar opentest4j-1.2.0.jar groovy-ant-3.0.21.jar groovy-test-3.0.21.jar ja
+ vaparser-core-3.17.0.jar gradle-test-kit-8.8.jar groovy-3.0.21.jar groo
+ vy-nio-3.0.21.jar groovy-groovydoc-3.0.21.jar groovy-datetime-3.0.21.ja
+ r groovy-json-3.0.21.jar groovy-console-3.0.21.jar kotlin-stdlib-1.9.22
+ .jar gradle-installation-beacon-8.8.jar
+

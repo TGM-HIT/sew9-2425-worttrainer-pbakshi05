@@ -64,6 +64,10 @@ public class WortEintrag implements Pruefen {
 
     @Override
     public boolean check() {
+
+        if(setName(name) && setUrl(url) == true) {
+            return true;
+        }
         return false;
     }
 }

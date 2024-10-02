@@ -89,6 +89,10 @@ public class View extends JPanel {
                     r += trainer.getRichtig();
                     f += trainer.getFalsch();
                     ins += trainer.getInsgesamt();
+
+                /**
+                 * Wenn die Zwei Wörter gleich sind
+                  */
                 if(eingabe.equals(ausgabe) == true) {
                     int random = (int) (Math.random() * liste.getWort().size());
                     WortEintrag ein = liste.getWort().get(random);
