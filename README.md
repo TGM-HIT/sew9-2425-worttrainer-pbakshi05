@@ -1,23 +1,19 @@
 # Worttrainer
 Pavel Bakshi
 
-## UML Diagramm
-<img src="Worttrainer.png" alt="Worttrainer" title="" />
+## Projektbeschreibung
+Der Worttrainer ist eine App, die speziell entwickelt wurde, um Volksschulkinder beim Üben ihrer Rechtschreibung zu unterstützen. Dabei werden Bilder, die über URLs geladen werden, angezeigt und die Kinder müssen das entsprechende Wort dazu eingeben. Das Programm überprüft die Eingabe und meldet, ob die Schreibweise korrekt oder falsch ist. Zudem wird eine Statistik geführt, die das Verhältnis von richtigen und falschen Antworten erfasst.
+Die Anwendung wurde unter Anwendung moderner Softwareentwicklungsmethoden entwickelt. Dabei kamen Gradle als Build-System sowie Git für die Versionsverwaltung zum Einsatz. Die Implementierung erfolgte in Java, während die Benutzeroberfläche mit Swing realisiert wurde.
 
-## Gradle
-Depandancy:
+## Installation und Einführung
 
-```java
-dependencies {
-    // Use JUnit Jupiter for testing.
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
-    implementation 'com.google.code.gson:gson:2.8.9'
-    implementation 'org.json:json:20210307'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-}
-```
+### Vorraussetzungen
+- Java
+- Gradle 
+- Ein Git-Client
 
-Gradle im Projekt;
+
+### Gradle
 
 ```java
 $ gradle init
@@ -29,6 +25,17 @@ Select type of build to generate:
   4: Basic (build structure only)
 
 $ 3
+```
+Depandancy:
+
+```java
+dependencies {
+    // Use JUnit Jupiter for testing.
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'org.json:json:20210307'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
 ```
 
 ## GUI
@@ -46,3 +53,7 @@ import java.io.IOException;
 import java.net.URL;
 import org.json.JSONObject;
 ```
+
+## UML Diagramm
+<img src="Worttrainer.png" alt="Worttrainer" title="" />
+
