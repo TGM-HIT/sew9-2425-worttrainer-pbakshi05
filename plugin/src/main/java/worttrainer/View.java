@@ -14,11 +14,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 import org.json.JSONObject;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+
 
 
 public class View extends JPanel {
@@ -52,13 +48,15 @@ public class View extends JPanel {
         JLabel label3 = new JLabel();
         JLabel label4 = new JLabel("Erate das Tier auf dem Bild!");
         JTextField input = new JTextField(16);
+
+        //Buttons
         JButton button = new JButton("Check");
         JButton speichern = new JButton("Speichern");
         JButton laden = new JButton("Laden");
 
 
 
-
+        // Textgröße und Farbe
         label.setFont(new Font("Verdana", Font.PLAIN, 38));
         label.setForeground(Color.WHITE);
         stats.setFont(new Font("Verdana", Font.PLAIN, 30));
@@ -70,13 +68,16 @@ public class View extends JPanel {
         insgesamt.setFont(new Font("Verdana", Font.PLAIN, 30));
         insgesamt.setForeground(Color.WHITE);
         label4.setFont(new Font("Verdana", Font.PLAIN, 18));
+
+        //Borders
         action.setBorder(BorderFactory.createEmptyBorder(120,70,0,70));
         grid.setBorder(BorderFactory.createEmptyBorder(0,10,0,0));
 
+        // Hintergrundfarbe
         panel.setBackground(new java.awt.Color(32, 41, 41));
         action.setBackground(new java.awt.Color(185, 204, 227));
 
-
+        // wenn auf den check Button gedrückt wird
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 Rechtschreibtrainer trainer = new Rechtschreibtrainer(liste);
@@ -118,6 +119,8 @@ public class View extends JPanel {
                 }
         }});
 
+
+        // wenn auf den Speicher Button gedrückt wird
         speichern.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -127,6 +130,8 @@ public class View extends JPanel {
             }
         });
 
+
+        // wenn auf den Laden Button gedrückt wird
         laden.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

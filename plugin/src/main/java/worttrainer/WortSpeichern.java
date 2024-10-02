@@ -14,6 +14,15 @@ public class WortSpeichern {
     private int flasch;
     private int insgesamt;
 
+    /**
+     * Konstruktor
+     * @param art Speicherart
+     * @param liste Wortliste
+     * @param aktuell das Aktuelle wort
+     * @param richtig anzahl der richtig geratenen Wörter
+     * @param falsch anzahl der falschen geratenen Wörter
+     * @param gesamt anzahl der insgesamt geratenen Wörter
+     */
     public WortSpeichern(SpeicherArt art, WortListe liste, WortEintrag aktuell, int richtig, int falsch, int gesamt) {
         this.art = art;
         this.worliste = liste;
@@ -24,6 +33,10 @@ public class WortSpeichern {
     }
 
 
+    /**
+     * Speichert Die Daten ab
+     * @param speochern eine Speicherart
+     */
     public void speichern(SpeicherArt speochern) {
         SpeicherArt j = new JSON(this.worliste, this.eintrag, this.richtig, this.flasch, this.insgesamt);
         SpeicherArt x = new XML();

@@ -1,18 +1,13 @@
 package worttrainer;
-import com.google.gson.Gson;
 
 import java.io.FileWriter;
 import java.io.FileReader;
-import java.io.IOException;
-import org.json.JSONObject;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 /**
- * Klasse JSON
+ * Klasse JSON ist eine Speicherart
  * @author: Pavel Bakshi
  * @version: 18.09.2024
  */
@@ -24,6 +19,15 @@ public class JSON implements SpeicherArt{
     private int flasch;
     private int insgesamt;
 
+
+    /**
+     * Konsztruktor
+     * @param liste Wortliste
+     * @param aktuell Worteintrag
+     * @param richtig Anzahl der richtig geratenen Worte
+     * @param falsch Anzahl der flaschen geratenen Worte
+     * @param gesamt Anzahl der insgesamt geratenen Worte
+     */
     public JSON(WortListe liste, WortEintrag aktuell, int richtig, int falsch, int gesamt) {
         this.wortliste = liste;
         this.eintrag = aktuell;
@@ -32,8 +36,15 @@ public class JSON implements SpeicherArt{
         this.insgesamt = gesamt;
     }
 
+    /**
+     * Leerer Konstruktor
+     */
     public JSON(){}
 
+
+    /**
+     * speichert alles in ein json File
+     */
     @Override
     public void speichern() {
         try (FileWriter writer = new FileWriter("worttrainer.json")) {
@@ -44,6 +55,10 @@ public class JSON implements SpeicherArt{
 
     }
 
+    /**
+     * Ladet Daten von einem schon verhandenen Json File
+     * @return gibt die Daten in einem String zurück
+     */
     @Override
     public String laden() {
         String content ="";
@@ -56,6 +71,10 @@ public class JSON implements SpeicherArt{
         return content;
     }
 
+    /**
+     * Wandelt die Daten in ein String um
+     * @return gibt ein Daten in einem String zurück
+     */
     @Override
     public String toString() {
         return  "{\n" +

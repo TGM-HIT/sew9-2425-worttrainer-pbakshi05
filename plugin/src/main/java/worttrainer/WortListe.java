@@ -34,10 +34,18 @@ public class WortListe implements Pruefen{
         wort.remove(w);
     }
 
+    /**
+     * Getter Methode
+     * @return eine liste aus worteinträgen
+     */
     public ArrayList<WortEintrag> getWort() {
         return wort;
     }
 
+    /**
+     * Überprüft ob alle Werte sinnvoll sind
+     * @return
+     */
     @Override
     public boolean check() {
         return false;

@@ -6,5 +6,10 @@ package worttrainer;
  * @version 18.09.2024
  */
 public interface Pruefen {
+
+    /**
+     * überprüft, ob alle werte Gültig sind
+     * @return
+     */
     public boolean check();
 }

@@ -57,16 +57,27 @@ public class Rechtschreibtrainer implements Pruefen {
         return false;
     }
 
+    /**
+     * Überprüft ob die Werte gültig sind
+     * @return true, wenn alle Werte passen
+     */
     @Override
     public boolean check() {
         return false;
     }
 
+    /**
+     * zählt mit wie viele richtig/falsch/insgesamt geraten wurde
+     * @param nameInput Name, welche der Benutzer eingegeben hat
+     * @param name Name des Bildes
+     */
     public void trainieren(String nameInput, String name) {
 
-            if (nameInput.equals(name)) {
+        /**
+         * Wenn die beiden Namen mit einander übereinstimmen
+         */
+        if (nameInput.equals(name)) {
                 this.richtig++;
-
 
             } else {
                 falsch++;
