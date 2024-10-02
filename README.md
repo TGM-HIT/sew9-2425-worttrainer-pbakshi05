@@ -37,8 +37,13 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 ```
+## Speichern und Laden
+Der FileWriter wurde verwendet, um Daten in eine Datei zu speichern und aus ihr zu laden, weil er eine einfache Möglichkeit bietet, Textdateien in Java zu bearbeiten. Mit dem FileWriter können Daten zeilenweise in eine Datei geschrieben und später wieder ausgelesen werden. Er ist besonders nützlich, wenn es darum geht, kleine bis mittelgroße Textdaten schnell und unkompliziert zu speichern und zu laden.
+
+Der FileWriter wurde verwendet, um Daten in JSON- und XML-Dateien zu speichern und zu laden, weil er eine einfache Methode bietet, Textdateien zu bearbeiten. 
 
 ## GUI
+Java Swing wurde für die grafische Oberfläche verwendet, weil es eine zuverlässige und flexible Möglichkeit bietet, Programme mit Fenstern, Buttons und Bildern zu erstellen. Es stellt viele Bausteine zur Verfügung, um eine Benutzeroberfläche einfach anzupassen und zu gestalten. Daher eignet es sich gut für Anwendungen, die eine klare und funktionale Benutzeroberfläche benötigen.
 
 wichtige imports:
 
